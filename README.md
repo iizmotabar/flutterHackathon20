@@ -1,7 +1,6 @@
 # retroGameBoy
 
-A new Flutter project.
-
+A retro themed GameBoy running Snake .
 ## Getting Started
 
 This project is a starting point for a Flutter application.
