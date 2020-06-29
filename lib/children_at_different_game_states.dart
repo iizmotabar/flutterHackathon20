@@ -7,10 +7,10 @@ final Widget startingGameChild = Container(
   padding: const EdgeInsets.all(32),
   child: Center(
     child: Text(
-      "Tap to start!",
+      "Press Play Again",
       textAlign: TextAlign.center,
       style: TextStyle(
-        color: Colors.purple,
+        color: Colors.white,
       ),
     ),
   ),

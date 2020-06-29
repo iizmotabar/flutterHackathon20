@@ -84,6 +84,7 @@ class _GameState extends State<Game> {
             height: MediaQuery.of(context).size.height * 0.80,
             width: MediaQuery.of(context).size.width * 0.80,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
                   margin: EdgeInsets.only(top: 30),
@@ -138,12 +139,15 @@ class _GameState extends State<Game> {
                       text: TextSpan(children: [
                         TextSpan(
                           text: 'Nintendo',
-                          style:
-                              TextStyle(fontSize: 20, fontFamily: 'Gill Sans'),
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Gill Sans',
+                              color: Colors.red[700]),
                         ),
                         TextSpan(
                           text: ' GAME BOY',
                           style: TextStyle(
+                              color: Colors.indigo[800],
                               fontFamily: 'Gill Sans',
                               fontWeight: FontWeight.w100,
                               fontStyle: FontStyle.italic,
@@ -168,6 +172,9 @@ class _GameState extends State<Game> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(blurRadius: 10, color: Colors.grey[800])
+                          ],
                           color: Colors.grey[400],
                           borderRadius: BorderRadius.all(
                             Radius.circular(20),
@@ -190,6 +197,10 @@ class _GameState extends State<Game> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 10, color: Colors.grey[800])
+                              ],
                               color: Colors.grey[400],
                               borderRadius: BorderRadius.all(
                                 Radius.circular(20),
@@ -209,6 +220,10 @@ class _GameState extends State<Game> {
                           },
                           child: Container(
                             decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 10, color: Colors.grey[800])
+                              ],
                               color: Colors.grey[400],
                               borderRadius: BorderRadius.all(
                                 Radius.circular(20),
@@ -230,6 +245,9 @@ class _GameState extends State<Game> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(blurRadius: 10, color: Colors.grey[800])
+                          ],
                           color: Colors.grey[400],
                           borderRadius: BorderRadius.all(
                             Radius.circular(20),
@@ -239,7 +257,58 @@ class _GameState extends State<Game> {
                       ),
                     ),
                   ],
-                )
+                ),
+                SizedBox(height: 20),
+                Expanded(
+                  child: Container(
+                      margin: const EdgeInsets.all(20),
+                      //  color: Colors.grey[400],
+                      //  height: MediaQuery.of(context).size.height * 0.05,
+                      child: Text(
+                        'SCORE: $score',
+                        style: TextStyle(
+                            fontFamily: 'Digitalism',
+                            fontSize: 30,
+                            color: Colors.grey[900]),
+                      )),
+                ),
+                GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTapUp: (tapUpDetails) {
+                    //  playGameMusic();
+                    _handleTap(tapUpDetails);
+                  },
+                  child: Container(
+                      margin: EdgeInsets.only(right: 15),
+                      decoration: BoxDecoration(
+                        // color: Colors.pink,
+                        boxShadow: [
+                          BoxShadow(color: Colors.black12, blurRadius: 10)
+                        ],
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(30),
+                        ),
+                      ),
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.red[400],
+                            child: FittedBox(
+                              fit: BoxFit.fill,
+                              child: Text(
+                                'Play',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontFamily: 'Gill Sans'),
+                              ),
+                            ),
+                            radius: 25,
+                          ),
+                        ),
+                      )),
+                ),
               ],
             ),
           ),
@@ -345,9 +414,9 @@ class _GameState extends State<Game> {
           padding: const EdgeInsets.all(32),
           child: Center(
             child: Text(
-              "SCORE: $score \n\n Tap to Play",
+              "SCORE: $score \n\n Press Play",
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.red),
+              style: TextStyle(color: Colors.white),
             ),
           ),
         );
