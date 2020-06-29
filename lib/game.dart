@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:audioplayers/audio_cache.dart';
 
-import 'children_at_different_game_states.dart';
+import 'different_states.dart';
 
 enum Direction { LEFT, RIGHT, UP, DOWN }
 enum GameState { START, RUNNING, FAILURE }
@@ -15,23 +15,23 @@ class Game extends StatefulWidget {
 }
 
 class _GameState extends State<Game> {
-  AudioCache audioPlayer = AudioCache(respectSilence: true);
+  final play = AudioCache();
 
-  @override
-  void initState() {
-    // playGameMusic();
+  // @override
+  // void initState() {
+  //   // playGameMusic();
 
-    super.initState();
-  }
+  //   super.initState();
+  // }
 
-  void playGameMusic() async {
-    audioPlayer.play('lalala.wav');
-    //var result = await audioPlayer.
-  }
+  // void playGameMusic() async {
+  //   play.play('lalala.wav');
+  //   //var result = await audioPlayer.
+  // }
 
-  void playMiniSound() {
-    audioPlayer.play('Boinkk.mp3');
-  }
+  // void playMiniSound() {
+  //   play.play('paddle.wav');
+  // }
 
   var snakePosition;
   Point newPointPosition;
@@ -79,7 +79,7 @@ class _GameState extends State<Game> {
                   topRight: Radius.circular(15),
                   bottomLeft: Radius.circular(15),
                   topLeft: Radius.circular(15)),
-              color: Colors.grey,
+              color: Colors.grey[600],
             ),
             height: MediaQuery.of(context).size.height * 0.80,
             width: MediaQuery.of(context).size.width * 0.80,
@@ -95,7 +95,7 @@ class _GameState extends State<Game> {
                       Color(0xFFF42371),
                       Color(0xFFF53442),
                       Color(0xFFF5801C),
-                      //  Color(0xFFF5B904),
+                
                     ]),
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10),
@@ -145,7 +145,7 @@ class _GameState extends State<Game> {
                               color: Colors.red[700]),
                         ),
                         TextSpan(
-                          text: ' GAME BOY',
+                          text: ' GAMEBOY',
                           style: TextStyle(
                               color: Colors.indigo[800],
                               fontFamily: 'Gill Sans',
@@ -164,9 +164,8 @@ class _GameState extends State<Game> {
                   children: <Widget>[
                     GestureDetector(
                       onTap: () {
+                        play.play('paddle.wav');
                         setState(() {
-                          playMiniSound();
-
                           _direction = Direction.UP;
                         });
                       },
@@ -189,9 +188,8 @@ class _GameState extends State<Game> {
                       children: <Widget>[
                         GestureDetector(
                           onTap: () {
+                            play.play('paddle.wav');
                             setState(() {
-                              playMiniSound();
-
                               _direction = Direction.LEFT;
                             });
                           },
@@ -212,9 +210,8 @@ class _GameState extends State<Game> {
                         SizedBox(width: 40),
                         GestureDetector(
                           onTap: () {
+                            play.play('paddle.wav');
                             setState(() {
-                              playMiniSound();
-
                               _direction = Direction.RIGHT;
                             });
                           },
@@ -237,9 +234,8 @@ class _GameState extends State<Game> {
                     //    SizedBox(height: 10),
                     GestureDetector(
                       onTap: () {
+                        play.play('paddle.wav');
                         setState(() {
-                          audioPlayer.play('Boinkk2.wav');
-
                           _direction = Direction.DOWN;
                         });
                       },

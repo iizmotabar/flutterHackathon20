@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 final Widget startingGameChild = Container(
   width: 200,
@@ -7,7 +6,7 @@ final Widget startingGameChild = Container(
   padding: const EdgeInsets.all(32),
   child: Center(
     child: Text(
-      "Press Play Again",
+      "Press Play Button",
       textAlign: TextAlign.center,
       style: TextStyle(
         color: Colors.white,
